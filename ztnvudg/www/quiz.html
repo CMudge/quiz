@@ -73,11 +73,14 @@
 		#mapid { height: 500px; }
     </style>
 <script>
+
 function questionShow() {
   // this function listens out for the server to say that the data is ready - i.e. has state 4
+  questions = JSON.parse(client.responseText);
+  question = questions[0]['features'][0]
   if (client.readyState == 4) {
     // change the DIV to show the response
-    document.getElementById("question").innerHTML = client.responseText;
+    document.getElementById("question").innerHTML = question['properties']['question'];
     }
 }
 
@@ -85,17 +88,18 @@ function trackLocation() {
  if (navigator.geolocation) {
      navigator.geolocation.watchPosition(requestNearestQuestion);
  } else {
-     document.getElementById('showLocation').innerHTML = "Geolocation is not supported by this browser.";
+     document.getElementById('question').innerHTML = "Geolocation is not supported by this browser.";
  }
 }
 
 function requestNearestQuestion(position) {
-  var requestString = "latitude="+ position.coords.latitude +"&longitude="+position.coords.longitude;
+  var requestString = "lat="+ position.coords.latitude +"&lng="+position.coords.longitude;
   client = new XMLHttpRequest();
   var url = "http://developer.cege.ucl.ac.uk:30266/closestQuestion?" + requestString;
   client.open('GET', url, true);
-  client.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+  //client.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
   client.onreadystatechange = questionShow;
+  client.send();
 }
 
 
@@ -167,6 +171,10 @@ function requestNearestQuestion(position) {
 <button id='trackLocation' onclick='trackLocation()'>Click Me to Get Your Location</button>
 
           
+        </div>
+		
+		<div class="mdl-card__actions mdl-card--border">
+				<a onclick="trackLocation()" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-color-text--blue-grey-500">Find Questions</a>
         </div>
       </main>
     </div>

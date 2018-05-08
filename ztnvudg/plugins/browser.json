@@ -39,6 +39,9 @@
     },
     "cordova-plugin-vibration": {
       "PACKAGE_NAME": "quiz"
+    },
+    "cordova-plugin-uniquedeviceid": {
+      "PACKAGE_NAME": "quiz"
     }
   },
   "dependent_plugins": {

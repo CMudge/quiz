@@ -50,7 +50,7 @@
   "cordova-plugin-device": {
     "source": {
       "type": "registry",
-      "id": "cordova-plugin-device@~1.1.6"
+      "id": "cordova-plugin-device@~1.1.7"
     },
     "is_top_level": true,
     "variables": {}
@@ -99,6 +99,14 @@
     "source": {
       "type": "registry",
       "id": "cordova-plugin-vibration@~2.1.5"
+    },
+    "is_top_level": true,
+    "variables": {}
+  },
+  "cordova-plugin-uniquedeviceid": {
+    "source": {
+      "type": "registry",
+      "id": "cordova-plugin-uniquedeviceid"
     },
     "is_top_level": true,
     "variables": {}

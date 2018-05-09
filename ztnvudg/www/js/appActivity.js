@@ -14,16 +14,6 @@
 		}).addTo(mymap);
 		
 		
-	
-	
-	
-	
-// function showPosition(position) {
-		// L.marker([position.coords.latitude, position.coords.longitude]).addTo(mymap)
-			// .bindPopup("<b>Position</b><br />Latitude: " + position.coords.latitude + "<br>Longitude: " + position.coords.longitude).openPopup();
-			// mymap.flyTo([position.coords.latitude, position.coords.longitude], 20);
-// }
-
 
 
 var question;
@@ -108,7 +98,7 @@ function processData(postString) {
 	};
    client.send(postString);
 }
-
+// Function to extract device UUID
 function onDeviceReady() {
     console.log(device.cordova);
 }

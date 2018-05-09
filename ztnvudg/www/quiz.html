@@ -72,131 +72,6 @@
 	<style type="text/css">
 		#mapid { height: 500px; }
     </style>
-<script>
-
-<!-- var question; -->
-
-<!-- function showUserGuide() { -->
-	<!-- document.getElementById("main").innerHTML = "<src=' quizUserGuide.html'>" -->
-
-<!-- function questionShow() { -->
-  <!-- // this function listens out for the server to say that the data is ready - i.e. has state 4 -->
-  <!-- questions = JSON.parse(client.responseText); -->
-  <!-- question = questions[0]['features'][0] -->
-  <!-- navigator.geolocation.clearWatch(watcherId); -->
-  <!-- if (client.readyState == 4) { -->
-    <!-- // change the DIV to show the response -->
-    <!-- document.getElementById("question").innerHTML = question["properties"]["question"]+ -->
-		<!-- '	<br />'+ -->
-		<!-- '	<label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="correctAnswer1">'+ -->
-		<!-- '    <input type="radio" id="correctAnswer1" class="mdl-radio__button" name="options" value="question["properties"]["answer1"]">'+ -->
-		<!-- '		<span class="mdl-radio__label">'+question["properties"]["answer1"]+'</span>'+ -->
-		<!-- '	</label>'+ -->
-		<!-- '	<br />'+ -->
-		<!-- '	<label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="correctAnswer2">'+ -->
-		<!-- '	  <input type="radio" id="correctAnswer2" class="mdl-radio__button" name="options" value="question["properties"]["answer2"]">'+ -->
-		<!-- '	  <span class="mdl-radio__label">'+question["properties"]["answer2"]+'</span>'+ -->
-		<!-- '	</label>'+ -->
-		<!-- '	<br />'+ -->
-		<!-- '	<label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="correctAnswer3">'+ -->
-		<!-- '	  <input type="radio" id="correctAnswer3" class="mdl-radio__button" name="options" value="question["properties"]["answer3"]">'+ -->
-		<!-- '	  <span class="mdl-radio__label">'+question["properties"]["answer3"]+'</span>'+ -->
-		<!-- '	</label>'+ -->
-		<!-- '	<br />'+ -->
-		<!-- '	<label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="correctAnswer4">'+ -->
-		<!-- '	  <input type="radio" id="correctAnswer4" class="mdl-radio__button" name="options" value="question["properties"]["answer4"]">'+ -->
-		<!-- '	  <span class="mdl-radio__label">'+question["properties"]["answer4"]+'</span>'+ -->
-		<!-- '	</label>'+ -->
-		<!-- '	<br />'+ -->
-		<!-- '		<div class="mdl-card__actions mdl-card--border">'+ -->
-		<!-- '		<a onclick="startDataUpload()" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-color-text--blue-grey-500">Submit Answer</a>'+ -->
-        <!-- '</div>'; -->
-		
-<!-- // create a custom popup  -->
-	<!-- var marker = L.marker(); -->
-
-	<!-- var latlng = [question['geometry']['coordinates'][1], question['geometry']['coordinates'][0]];  -->
-	<!-- marker -->
-		<!-- .setLatLng(latlng) -->
-		<!-- .addTo(mymap); -->
-	<!-- mymap.zoomTo(latlng, 20); -->
-	<!-- <!-- client.send(); --> -->
-    <!-- } -->
-<!-- } -->
-
-<!-- var watcherId; -->
-
-<!-- function trackLocation() { -->
- <!-- if (navigator.geolocation) { -->
-     <!-- watcherId = navigator.geolocation.watchPosition(requestNearestQuestion); -->
- <!-- } else { -->
-     <!-- document.getElementById('question').innerHTML = "Geolocation is not supported by this browser."; -->
- <!-- } -->
-<!-- } -->
-
-<!-- function requestNearestQuestion(position) { -->
-  <!-- var requestString = "lat="+ position.coords.latitude +"&lng="+position.coords.longitude; -->
-  <!-- client = new XMLHttpRequest(); -->
-  <!-- var url = "http://developer.cege.ucl.ac.uk:30266/closestQuestion?" + requestString; -->
-  <!-- client.open('GET', url, true); -->
-  <!-- //client.setRequestHeader("Content-type", "application/x-www-form-urlencoded"); -->
-  <!-- client.onreadystatechange = questionShow; -->
-  <!-- client.send(); -->
-<!-- } -->
-
-<!-- function processData(postString) { -->
-	<!-- client = new XMLHttpRequest(); -->
-	<!-- client.open('POST','http://developer.cege.ucl.ac.uk:30266/submitAnswer',true); -->
- 
-	<!-- client.setRequestHeader("Content-type", "application/x-www-form-urlencoded"); -->
-	<!-- // Code adapted from https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest/onreadystatechange -->
-	<!-- client.onreadystatechange = function () { -->
-		<!-- if(client.readyState === 4 && client.status === 200) { -->
-			<!-- console.log("Answer submitted successfully"); -->
-		<!-- } -->
-	<!-- }; -->
-   <!-- client.send(postString); -->
-<!-- } -->
-
-<!-- function onDeviceReady() { -->
-    <!-- console.log(device.cordova); -->
-<!-- } -->
-<!-- document.addEventListener("deviceready", onDeviceReady, false); -->
-
-
-<!-- function startDataUpload() { -->
-     <!-- /* Write code to say if the question is correct or not */ -->
-
-
-	<!-- questionText = question['properties']['question']; -->
-	<!-- submittedAnswer = 0; -->
-	<!-- mobileUUID = 0; -->
-
-	<!-- if (document.getElementById("correctAnswer1").checked === true) { -->
-		<!-- submittedAnswer = 1; -->
-	<!-- } -->
-	<!-- else if (document.getElementById("correctAnswer2").checked === true) { -->
-		<!-- submittedAnswer = 2; -->
-	<!-- } -->
-	<!-- else if (document.getElementById("correctAnswer3").checked === true) { -->
-		<!-- submittedAnswer = 3; -->
-	<!-- } -->
-	<!-- else if (document.getElementById("correctAnswer4").checked === true) { -->
-		<!-- submittedAnswer = 4; -->
-	<!-- } -->
-	<!-- if (submittedAnswer == question['properties']['correctanswer']) { -->
-		<!-- alert("correct!"); -->
-	<!-- } -->
-	<!-- else { -->
-		<!-- alert("Wrong!"); -->
-	<!-- } -->
-
-	<!-- var postString = "question="+question+"&submittedAnswer="+submittedAnswer+"&mobileUUID="+mobileUUID; -->
-	<!-- processData(postString); -->
-<!-- } -->
-<!-- } -->
-
-</script>
 </head>
 <body>
  <div class="demo-layout mdl-layout mdl-js-layout mdl-layout--fixed-drawer mdl-layout--fixed-header">
@@ -204,68 +79,29 @@
         <div class="mdl-layout__header-row">
           <span class="mdl-layout-title">Location-based Quiz App</span>
           <div class="mdl-layout-spacer"></div>
-          <!-- <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable"> -->
-            <!-- <label class="mdl-button mdl-js-button mdl-button--icon" for="search"> -->
-              <!-- <i class="material-icons">search</i> -->
-            <!-- </label> -->
-            <!-- <div class="mdl-textfield__expandable-holder"> -->
-              <!-- <input class="mdl-textfield__input" type="text" id="search"> -->
-              <!-- <label class="mdl-textfield__label" for="search">Enter your query...</label> -->
-            <!-- </div> -->
-          <!-- </div> -->
-          <!-- <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" id="hdrbtn"> -->
-            <!-- <i class="material-icons">more_vert</i> -->
-          <!-- </button> -->
-          <!-- <ul class="mdl-menu mdl-js-menu mdl-js-ripple-effect mdl-menu--bottom-right" for="hdrbtn"> -->
-            <!-- <li class="mdl-menu__item"><a href="quizUserGuide.html">User Guide</a></li> -->
-            <!-- <li class="mdl-menu__item">Contact</li> -->
-            <!-- <li class="mdl-menu__item">Legal information</li> -->
           </ul>
         </div>
       </header>
       <div class="demo-drawer mdl-layout__drawer mdl-color--blue-grey-900 mdl-color-text--blue-grey-50">
         <header class="demo-drawer-header">
-          <img src="images/user.jpg" class="demo-avatar">
-          <!-- <div class="demo-avatar-dropdown"> -->
-            <!-- <span>hello@example.com</span> -->
-            <!-- <div class="mdl-layout-spacer"></div> -->
-            <!-- <button id="accbtn" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon"> -->
-              <!-- <i class="material-icons" role="presentation">arrow_drop_down</i> -->
-              <!-- <span class="visuallyhidden">Accounts</span> -->
-            <!-- </button> -->
-            <!-- <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="accbtn"> -->
-              <!-- <li class="mdl-menu__item">hello@example.com</li> -->
-              <!-- <li class="mdl-menu__item">info@example.com</li> -->
-              <!-- <li class="mdl-menu__item"><i class="material-icons">add</i>Add another account...</li> -->
-            <!-- </ul> -->
-          <!-- </div> -->
         </header>
         <nav class="demo-navigation mdl-navigation mdl-color--blue-grey-800">
           <a class="mdl-navigation__link" href=""><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">home</i>Home</a>
-          <!-- <a class="mdl-navigation__link" href=""><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">inbox</i>Inbox</a> -->
-          <!-- <a class="mdl-navigation__link" href=""><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">delete</i>Trash</a> -->
-          <!-- <a class="mdl-navigation__link" href=""onclick='getEarthquakes();return false;'><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">report</i>Get Earthquakes</a> -->
-          <!-- <a class="mdl-navigation__link" href=""><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">forum</i>Forums</a> -->
-          <a class="mdl-navigation__link" href=""onclick='trackLocation();return false;'><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">flag</i>Find Questions</a>
-          <!-- <a class="mdl-navigation__link" href=""><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">local_offer</i>Promos</a> -->
-          <!-- <a class="mdl-navigation__link" href=""onclick='getPoi();return false;'><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">shopping_cart</i>Get POI</a> -->
-          <!-- <a class="mdl-navigation__link" href=""><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">people</i>Social</a> -->
           <div class="mdl-layout-spacer"></div>
           <a class="mdl-navigation__link" href=""onclick='callDivChange();return false;'><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">help_outline</i>User Guide</a>
         </nav>
       </div>
+	  <!-- This is where the main content gets displayed -->
       <main class="mdl-layout__content mdl-color--grey-100">
         <div class="mdl-grid demo-content" id="main">
           <div class="demo-charts mdl-color--white mdl-shadow--2dp mdl-cell mdl-cell--12-col mdl-grid" id="mapid" style="width: 100%; height: 500px;"> 
           </div>
-        <div class="demo-charts mdl-color--teal-50 mdl-shadow--2dp mdl-cell mdl-cell--12-col mdl-grid" id="form" style="width: 100%; height: 300px;">   
+        <div class="demo-charts mdl-color--teal-50 mdl-shadow--2dp mdl-cell mdl-cell--12-col mdl-grid" id="form" style="width: 100%;">   
 		<div class="mdl-card__actions mdl-card--border">
 				<a onclick="trackLocation()" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-color-text--blue-grey-500">Find Questions</a>
         </div>		
-<!-- <b>This code will display your current location</b> -->
 		<div class="mdl-card__supporting-text mdl-color-text--grey-600" id='question'><span class="visuallyhidden">Question will be displayed here</span></div>
 		<div class="mdl-card__supporting-text mdl-color-text--grey-600" id='answerOutcome'><span class="visuallyhidden">Answer outcome will be displayed here</span></div>
-<!-- <button id='trackLocation' onclick='trackLocation()'>Click Me to Get Your Location</button> -->
 		</div>
           
         </div>

@@ -69,7 +69,6 @@ function questionShow() {
 		.setLatLng(latlng)
 		.addTo(mymap);
 	mymap.setView(latlng, 18);
-	<!-- client.send(); -->
     }
 }
 
